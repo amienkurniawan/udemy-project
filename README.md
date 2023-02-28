@@ -23,6 +23,11 @@ pada laravel sudah disediakan configuration yang dapat digunakan, configuration 
 2. pada config menggunakan array untuk menyimpan nilai
 3. kita dapat membuat configuration kita sendiri dengan membuat file php kemudian diisi dengan array key:value, contoh: config(contoh.author.first)
 
+### Configuration Cache
+kita dapat melakukan cache pada file configuration yang ada dilaravel, hal ini bertujuan agar mempercepat proses membaca file config, apabila configuration kita sudah banyak maka hal ini perlu dilakukan. untuk melakukan Cache pada configuration kita dapat menjalankan perintah artisan sebagai berikut : 
+1. php artisan config:cache => perintah ini untuk membuat cache dari file config
+2. php artisan config:clear => perintah ini digunakan untuk menghapus cache yang sudah dibuat sebelumnya
+
 ## Laravel Sponsors
 
 
