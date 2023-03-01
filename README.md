@@ -29,6 +29,10 @@ kita dapat melakukan cache pada file configuration yang ada dilaravel, hal ini b
 2. php artisan config:clear => perintah ini digunakan untuk menghapus cache yang sudah dibuat sebelumnya
 
 ### Dependency Injection
+Dependency Injection adalah teknik dimana sebuah object menerima object lain yang dibutuhkan atau istilahnya dependencies. ketika kita membuat object seringkali kita membutuhkan object yang lain. 
+untuk melakukan Injection cara yang digunakan tidak hanya dengan menggunakan constructor, bisa menggunakan attribute atau function. tapi untuk melakukan dependency injection disarankan menggunakan construct.
+
+### Service container
 
 
 ## Laravel Sponsors
