@@ -28,6 +28,9 @@ kita dapat melakukan cache pada file configuration yang ada dilaravel, hal ini b
 1. php artisan config:cache => perintah ini untuk membuat cache dari file config
 2. php artisan config:clear => perintah ini digunakan untuk menghapus cache yang sudah dibuat sebelumnya
 
+### Dependency Injection
+
+
 ## Laravel Sponsors
 
 
