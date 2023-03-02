@@ -36,6 +36,10 @@ untuk melakukan Injection cara yang digunakan tidak hanya dengan menggunakan con
 pada laravel kita tidak perlu lagi melakukan Dependency injection secara manual, kita dapat menggunakan service container yang sudah disediakan laravel, untuk menggunakan service container ada beberapa function yang bisa digunakan, yaitu :
 1. make(key) => pada make(key) kita akan membuat sebuah objek baru yang ada dari class. contoh : ServiceContainerTest.php
 2. bind(key,closure) => pada bind(key,closure) digunakan ketika kita akan membuat sebuah object baru yang class-nya membutuhkan data parameter construct, parameter tersebut ditulis pada closure. contoh : ServiceContainerTest.php
+3. singleton(key,closure) => setiap kali kita menggunakan make(key) laravel akan membuat object baru, ada kalanya dimana kita hanya membutuhkan cukup satu object saja, dengan menggunakan singleton maka setiap kali kita menggunakan make(key) object yang terbentuk akan sama dan dapat digunakan secara terus menerus. contoh : ServiceContainerTest.php
+4. instance => digunakan ketika sebuah object sudah terbentuk dan kita ingin binding object tersebut di dalam laravel. contoh : ServiceContainerTest.php
+
+
 ## Laravel Sponsors
 
 
