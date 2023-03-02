@@ -33,8 +33,9 @@ Dependency Injection adalah teknik dimana sebuah object menerima object lain yan
 untuk melakukan Injection cara yang digunakan tidak hanya dengan menggunakan constructor, bisa menggunakan attribute atau function. tapi untuk melakukan dependency injection disarankan menggunakan construct.
 
 ### Service container
-
-
+pada laravel kita tidak perlu lagi melakukan Dependency injection secara manual, kita dapat menggunakan service container yang sudah disediakan laravel, untuk menggunakan service container ada beberapa function yang bisa digunakan, yaitu :
+1. make(key) => pada make(key) kita akan membuat sebuah objek baru yang ada dari class. contoh : ServiceContainerTest.php
+2. bind(key,closure) => pada bind(key,closure) digunakan ketika kita akan membuat sebuah object baru yang class-nya membutuhkan data parameter construct, parameter tersebut ditulis pada closure. contoh : ServiceContainerTest.php
 ## Laravel Sponsors
 
 
