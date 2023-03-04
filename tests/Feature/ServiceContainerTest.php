@@ -86,7 +86,30 @@ class ServiceContainerTest extends TestCase
         $foo = $this->app->make(Foo::class);
         $bar2 = $this->app->make(Bar::class);
 
-        self::assertNotSame($foo, $bar2); // ini akan bernilai true karena $foo dan $bar2 merupakan object yang berbeda meskipun $bar2 memerlukan construct $foo ketika object dibuat
+        // self::assertNotSame($foo, $bar2); // ini akan bernilai true karena $foo dan $bar2 merupakan object yang berbeda meskipun $bar2 memerlukan construct $foo ketika object dibuat
         self::assertSame($foo, $bar2->foo);  // ini akan bernilai true karena $foo dan $bar2->foo merupakan object yang sama
+    }
+
+    public function test_dependency_injection_closure()
+    {
+        $this->app->singleton(Bar::class, function ($app) { // kita menggunakan $app sebagai service container
+            // setiap kali class Bar membuat object, class Bar tesebut akan membutuhkan Class dari Foo
+            // dan ketika Class Bar membuat object, disini class Foo akan meng-inject-kan object dari Foo yang berbeda.
+            // sehingga ketika kita menjalankan assertSame($bar1->foo(),$bar2->foo()) akan menghasilkan nilai false
+            // dan ketika kita menjalankan assertSame($bar1,$bar2) akan menghasilkan nilai true 
+            // karena bar1 dan bar2 memiliki object yang sama tetapi object Foo class didalam $bar1,$bar2 itu berbeda
+
+            $foo = $app->make(Foo::class); // disini kita tidak perlu mengakses service container dengan menggunakan $this->app kita cukup menggunakan $app saja
+
+            return new Bar($foo);
+        });
+
+        // setelah kita bind kita dapat membuat object dari class Bar seperti dibawah ini:
+        $bar1 = $this->app->make(Bar::class);
+        $bar2 = $this->app->make(Bar::class);
+
+        // self::assertNotSame($foo, $bar2); // ini akan bernilai true karena $foo dan $bar2 merupakan object yang berbeda meskipun $bar2 memerlukan construct $foo ketika object dibuat
+        self::assertSame($bar1->foo(), $bar2->foo());  // ini akan bernilai true karena $bar1->foo dan $bar2->foo merupakan object yang sama
+        self::assertSame($bar1, $bar2); // ini akan bernilai true karena $foo dan $bar2 merupakan object yang berbeda meskipun $bar2 memerlukan construct $foo ketika object dibuat
     }
 }
