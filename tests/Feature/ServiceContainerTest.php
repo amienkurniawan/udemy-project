@@ -5,7 +5,7 @@ namespace Tests\Feature;
 use App\Data\Bar;
 use App\Data\Foo;
 use App\Data\Person;
-use App\Services\HelloService;
+use App\Services\HelloServices;
 use App\Services\HelloServicesIndonesia;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
@@ -25,7 +25,7 @@ class ServiceContainerTest extends TestCase
 
         self::assertEquals('Foo', $foo1->foo());
         self::assertEquals('Foo', $foo2->foo());
-        self::assertNotSame($foo1, $foo2);
+        // self::assertNotSame($foo1, $foo2); tidak sama jika dependency di daftarkan pada service provider dengan cara singleton
     }
 
     public function test_bind()
@@ -119,7 +119,7 @@ class ServiceContainerTest extends TestCase
         // untuk melakukan binding pada interface kita dapat melakukan dengan cara berikut ini
         // $this->app->singleton(HelloService::class, HelloServicesIndonesia::class);
         // interface tidak dapat di instansiasi
-        // sehinggal ketika kita melakukan bind/singleton kita perlu mendefinisikan juga class yang digunakan
+        // sehingga ketika kita melakukan bind/singleton kita perlu mendefinisikan juga class yang digunakan
 
 
         // jika kita membutuhkan closure kita juga dapat menggunakan dengan cara seperti ini
@@ -127,8 +127,8 @@ class ServiceContainerTest extends TestCase
             return new HelloServicesIndonesia();
         });
 
-        $helloService = $this->app->make(HelloService::class);
+        $helloService = $this->app->make(HelloServices::class);
 
-        self::assertEquals("Hello Amien", $helloService->hello("Amien"));
+        self::assertSame("Hello Amien", $helloService->hello("Amien"));
     }
 }

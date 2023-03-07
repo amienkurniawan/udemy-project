@@ -39,6 +39,8 @@ pada laravel kita tidak perlu lagi melakukan Dependency injection secara manual,
 3. singleton(key,closure) => setiap kali kita menggunakan make(key) laravel akan membuat object baru, ada kalanya dimana kita hanya membutuhkan cukup satu object saja, dengan menggunakan singleton maka setiap kali kita menggunakan make(key) object yang terbentuk akan sama dan dapat digunakan secara terus menerus. contoh : ServiceContainerTest.php
 4. instance => digunakan ketika sebuah object sudah terbentuk dan kita ingin binding object tersebut di dalam laravel. contoh : ServiceContainerTest.php
 
+### Provider Service
+
 
 ## Laravel Sponsors
 
