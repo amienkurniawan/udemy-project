@@ -22,5 +22,7 @@ class ConfigurationTest extends TestCase
 
 
         self::assertEquals('Amien', $first_name);
+        self::assertEquals('Kurniawan', $last_name);
+        self::assertEquals('offdevamienk@gmail.com', $email);
     }
 }

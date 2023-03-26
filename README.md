@@ -47,19 +47,22 @@ pada laravel kita tidak perlu lagi melakukan Dependency injection secara manual,
 
 ### Routing
 
+### Middleware
+pada test ini kita menambahkan middleware
+1. Global Middleware => jika kita sudah membuat sebuah middleware kita perlu mendaftarkan middleware tersebut, kita dapat mendaftarkannya secara global middleware maupun route middleware, untuk global middleware akan dibaca secara global, sedangkan route middleware akan dibaca pada route masing-masing yang mengimplementasikan middleware tersebut.
+2. alias Middleware => pada alias middleware kita dapat memanggil middleware kita dengan menggunakan alias, 
+misalkan middleware => App\Http\Middleware\ContohMiddleware:class 
+menjadi protected $routeMiddleware = [
+        'contoh' => ContohMiddleware::class,
+        ...
+        ]
+3. Group Middleware => pada group middleware kita dapat mengelompokkan masing-masing route 
+4. Middleware Parameter => ketika kita menggunakan parameter middleware alangkah lebih baiknya jika kita tidak menggunakan group middleware karena akan mengurangi fleksibilitas dari parameter tersebut, misalkan untuk route dengan middleware => PZN, group => PZN pada route middleware parameter perlu ditambahkan parameter sebagai berikut ->middleware('PZN:PZN,401'), sedangkan di group kurang fleksibel sehingga kita perlu mengubah group middleware menjadi berikut ini 
+'pzn' => [
+            'contoh:PZN,401',
+        ],
 
-## Laravel Sponsors
-
-
-### Premium Partners
-
-
-## Contributing
-
-
-## Code of Conduct
-
-## Security Vulnerabilities
+5. Exclude Middleware => menggunakan withoutMiddleware()
 
 ## License
 

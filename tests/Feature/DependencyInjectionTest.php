@@ -15,7 +15,7 @@ class testDependencyInjection extends TestCase
      *
      * @return void
      */
-    public function test_example()
+    public function test_dependency_injection()
     {
         $foo = new Foo();
         $bar = new Bar($foo); // kita melakukan injection dependency menggunakan construct
@@ -23,5 +23,6 @@ class testDependencyInjection extends TestCase
         // $foo = new Foo();
         // $bar = new Bar();
         // $bar->setFoo($foo); // kita juga bisa melakukan injection dependency menggunakan set attribute
+        $this->assertEquals('Foo and Bar', $bar->bar());
     }
 }

@@ -67,3 +67,15 @@ Route::get('/product/{id}', function ($id) {
 Route::get('/product-redirect/{id}', function ($id) {
     return redirect()->route('product.detail', ['id' => $id]);
 });
+
+Route::middleware(['contoh:PZN,401'])->prefix('/middleware')->group(function () {
+    Route::get('/api', function () {
+        return 'Ok';
+    });
+});
+
+Route::middleware(['pzn'])->prefix('/middleware')->group(function () {
+    Route::get('/group', function () {
+        return 'Group';
+    });
+});
