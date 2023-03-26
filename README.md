@@ -41,6 +41,12 @@ pada laravel kita tidak perlu lagi melakukan Dependency injection secara manual,
 
 ### Provider Service
 
+### Service container
+
+### Facades
+
+### Routing
+
 
 ## Laravel Sponsors
 

@@ -17,7 +17,7 @@ class FacadeTest extends TestCase
      */
     public function test_facedes()
     {
-        Log::debug();
+
         $firstname1 = Config::get('contoh.author.first');
         $firstname2 = config('contoh.author.first');
 
