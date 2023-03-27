@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CookieController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -78,4 +79,11 @@ Route::middleware(['pzn'])->prefix('/middleware')->group(function () {
     Route::get('/group', function () {
         return 'Group';
     });
+});
+
+// Route Cookie
+Route::controller(CookieController::class)->group(function () {
+    Route::get('/cookie/set', 'createCookie');
+    Route::get('/cookie/get', 'getCookie');
+    Route::get('/cookie/clear', 'clearCookie');
 });
