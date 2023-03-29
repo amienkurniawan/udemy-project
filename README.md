@@ -67,6 +67,11 @@ menjadi protected $routeMiddleware = [
 ### file upload
 pada file upload kita perlu mensetting filesystem default kita, misalkan menggunakan public, local, s3
 
+### file Storage
+pada file storage kita dapat setting storagenya yang awalnya local menjadi public, perbedaannya adalah ketika local maka file yang diupload akan disimpang distorage sedangkan jika dipublic akan disimpan di storage/public agar dapat diakses secara public.
+
+untuk setting default driver yang akan digunakan pada storage dapat di setting melalui config/app
+
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
