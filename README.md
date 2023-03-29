@@ -64,6 +64,9 @@ menjadi protected $routeMiddleware = [
 
 5. Exclude Middleware => menggunakan withoutMiddleware()
 
+### file upload
+pada file upload kita perlu mensetting filesystem default kita, misalkan menggunakan public, local, s3
+
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).

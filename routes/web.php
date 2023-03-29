@@ -87,3 +87,6 @@ Route::controller(CookieController::class)->group(function () {
     Route::get('/cookie/get', 'getCookie');
     Route::get('/cookie/clear', 'clearCookie');
 });
+
+// Route Upload file
+Route::post('/file/upload', [\App\Http\Controllers\FileController::class, 'upload']);
